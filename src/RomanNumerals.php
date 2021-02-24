@@ -33,5 +33,9 @@ class RomanNumerals {
         if($numero == 500){
             return "D";
         }
+        // A partir de ahora, empiezan por M
+        if($numero == 1000){
+            return "M";
+        }
     }
 }

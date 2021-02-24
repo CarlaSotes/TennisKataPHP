@@ -97,5 +97,18 @@ final class RomanNumeralsTest extends TestCase {
         $this->assertEquals("D", $result);
     }
 
+    /**
+     * Pasar el número 1000 a números romanos
+     * @test
+     */
+    public function pasar_1000_a_romanos() {
+        // Preparación del test
+        $romanNumeral = new RomanNumerals();
+        // Ejecución del test
+        $result = $romanNumeral->convertir(1000);
+        // Validación
+        $this->assertEquals("M", $result);
+    }
+
 
 }

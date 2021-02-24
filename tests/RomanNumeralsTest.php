@@ -110,5 +110,27 @@ final class RomanNumeralsTest extends TestCase {
         $this->assertEquals("M", $result);
     }
 
+    /**
+     * Pasar los números concretos a romanos; modificamos
+     * el código, empleando una lista asociativa
+     * @test
+     */
+    public function pasar_basicos_a_romanos() {
+        // Preparación del test
+        $romanNumeral = new RomanNumerals();
+        // Ejecución y Validación
+        $this->assertEquals("I", $romanNumeral->convertir(1));
+        $this->assertEquals("IV", $romanNumeral->convertir(4));
+        $this->assertEquals("V", $romanNumeral->convertir(5));
+        $this->assertEquals("IX", $romanNumeral->convertir(9));
+        $this->assertEquals("X", $romanNumeral->convertir(10));
+        $this->assertEquals("XL", $romanNumeral->convertir(40));
+        $this->assertEquals("L", $romanNumeral->convertir(50));
+        $this->assertEquals("XC", $romanNumeral->convertir(90));
+        $this->assertEquals("C", $romanNumeral->convertir(100));
+        $this->assertEquals("CD", $romanNumeral->convertir(400));
+        $this->assertEquals("CM", $romanNumeral->convertir(900));
+        $this->assertEquals("M", $romanNumeral->convertir(1000));
+    }
 
 }

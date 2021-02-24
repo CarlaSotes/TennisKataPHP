@@ -58,5 +58,18 @@ final class RomanNumeralsTest extends TestCase {
         $this->assertEquals("X", $result);
     }
 
+    /**
+     * Pasar el número 10 a números romanos
+     * @test
+     */
+    public function pasar_50_a_romanos() {
+        // Preparación del test
+        $romanNumeral = new RomanNumerals();
+        // Ejecución del test
+        $result = $romanNumeral->convertir(50);
+        // Validación
+        $this->assertEquals("L", $result);
+    }
+
 
 }

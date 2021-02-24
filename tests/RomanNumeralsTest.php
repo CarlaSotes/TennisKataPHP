@@ -31,4 +31,17 @@ final class RomanNumeralsTest extends TestCase {
         // Validación
         $this->assertEquals("I", $result);
     }
+
+    /**
+     * Pasar el número 5 a números romanos
+     * @test
+     */
+    public function pasar_5_a_romanos() {
+        // Preparación del test
+        $romanNumeral = new RomanNumerals();
+        // Ejecución del test
+        $result = $romanNumeral->convertir(5);
+        // Validación
+        $this->assertEquals("V", $result);
+    }
 }

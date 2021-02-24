@@ -13,5 +13,9 @@ class RomanNumerals {
         if($numero == 1){
             return "I";
         }
+        // Si el número está entre 5 y 10, empieza por V
+        if($numero == 5){
+            return "V";
+        }
     }
 }

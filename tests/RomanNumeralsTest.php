@@ -145,5 +145,15 @@ final class RomanNumeralsTest extends TestCase {
         $this->assertEquals("V", $romanNumeral->convertir(5));
     }
 
+    /**
+     * Pasar ya una combinación de números a romanos, por ejemplo el 8
+     * @test
+     */
+    public function pasar_8_a_romanos() {
+        // Preparación del test
+        $romanNumeral = new RomanNumerals();
+        // Ejecución y Validación
+        $this->assertEquals("VIII", $romanNumeral->convertir(8));
+    }
 
 }

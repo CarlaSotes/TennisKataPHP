@@ -54,12 +54,20 @@ class RomanNumerals {
         // Obtener el número romano básico: return $numeros_basicos[$numero];
 
         // Es necesario que pare cuando el número sea 0 porque vamos a ir restando
+        $resultado = "";
         while ($numero > 0) {
             foreach($numeros_basicos as $arabe=>$romano) {
-                if($numero == $arabe){
-                    return $romano;
+                if($numero >= $arabe){
+                    // Decrementamos el número menos el número asociado que hemos encontrado
+                    // para seguir calculando su romano
+                    $numero = $numero-$arabe;
+                    // Almacenar el sesultado
+                    $resultado .= $romano;
+                    // Salir del foreach para volver a mirar el array desde el principio
+                    break;
                 }
             }
         }
+        return $resultado;
     }
 }

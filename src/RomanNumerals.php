@@ -46,61 +46,20 @@ class RomanNumerals {
         /**
          * Mediante lista asociativa
          */
-        // Lista asociativa con los números "básicos" romanos
+        // Lista asociativa con los números "básicos" y "peculiares" romanos
         $numeros_basicos = array(1000=>'M', 900=>'CM', 500=>'D', 400=>'CD', 100=>'C',
                             90=>'XC', 50=>'L', 40=>'XL', 10=>'X', 9=>'IX', 5=>'V',
                             4=>'IV', 1=>'I');
-        //Para el número 1
-        if ($numero == 1){
-            return $numeros_basicos['1'];
-        }
-        //Para el número 4
-        if ($numero == 4){
-            return $numeros_basicos['4'];
-        }
-        //Para el número 5
-        if ($numero == 5){
-            return $numeros_basicos['5'];
-        }
-        //Para el número 9
-        if ($numero == 9){
-            return $numeros_basicos['9'];
-        }
-        //Para el número 10
-        if ($numero == 10){
-            return $numeros_basicos['10'];
-        }
-        //Para el número 40
-        if ($numero == 40){
-            return $numeros_basicos['40'];
-        }
-        //Para el número 50
-        if ($numero == 50){
-            return $numeros_basicos['50'];
-        }
-        //Para el número 90
-        if ($numero == 90){
-            return $numeros_basicos['90'];
-        }
-        //Para el número 100
-        if ($numero == 100){
-            return $numeros_basicos['100'];
-        }
-        //Para el número 400
-        if ($numero == 400){
-            return $numeros_basicos['400'];
-        }
-        //Para el número 500
-        if ($numero == 500){
-            return $numeros_basicos['500'];
-        }
-        //Para el número 900
-        if ($numero == 900){
-            return $numeros_basicos['900'];
-        }
-        //Para el número 1000
-        if ($numero == 1000){
-            return $numeros_basicos['1000'];
+
+        // Obtener el número romano básico: return $numeros_basicos[$numero];
+
+        // Es necesario que pare cuando el número sea 0 porque vamos a ir restando
+        while ($numero > 0) {
+            foreach($numeros_basicos as $arabe=>$romano) {
+                if($numero == $arabe){
+                    return $romano;
+                }
+            }
         }
     }
 }

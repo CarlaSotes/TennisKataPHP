@@ -133,4 +133,17 @@ final class RomanNumeralsTest extends TestCase {
         $this->assertEquals("M", $romanNumeral->convertir(1000));
     }
 
+    /**
+     * Pasar los números concretos a romanos; mejorar el algoritmo
+     * Lo probamos con el número 5
+     * @test
+     */
+    public function pasar_5_a_romanos_asocativa() {
+        // Preparación del test
+        $romanNumeral = new RomanNumerals();
+        // Ejecución y Validación
+        $this->assertEquals("V", $romanNumeral->convertir(5));
+    }
+
+
 }

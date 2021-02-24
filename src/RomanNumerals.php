@@ -25,5 +25,9 @@ class RomanNumerals {
         if($numero == 50){
             return "L";
         }
+        // Si el número es inferior a 499, empieza por L
+        if($numero == 100){
+            return "C";
+        }
     }
 }

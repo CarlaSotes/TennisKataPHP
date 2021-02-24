@@ -9,13 +9,17 @@ class RomanNumerals {
      * @return string
      */
     public function convertir(int $numero): string {
-        // Si el número es inferior a 5, empieza por I
+        // Si el número es inferior a 4, empieza por I
         if($numero == 1){
             return "I";
         }
-        // Si el número está entre 5 y 10, empieza por V
+        // Si el número está entre 5 y 9, empieza por V
         if($numero == 5){
             return "V";
+        }
+        // Si el número es inferior a 49, empieza por X
+        if($numero == 10){
+            return "X";
         }
     }
 }

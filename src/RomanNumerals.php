@@ -6,8 +6,8 @@ class RomanNumerals {
 
     /**
      * El planteamiento es: dado un número, busco en la lista el primero que sea
-     * menor o igual, traducir a romano, y al árabe original, le resto el ya calculado
-     * y repetimos el proceso.
+     * menor o igual, convertir a romano, y al árabe original, le resto el ya calculado
+     * y repetimos el proceso con dicho número.
      * @param int $numero
      * @return string
      */
@@ -23,8 +23,7 @@ class RomanNumerals {
             // recorrer la lista hasta dar con el primer elemento <= al que buscamos
             foreach($numeros_basicos as $arabe=>$romano) {
                 if($numero >= $arabe){
-                    // Decrementamos el número menos el número asociado que hemos encontrado
-                    // para seguir calculando su romano
+                    // Decrementar el número original
                     $numero = $numero-$arabe;
                     // Almacenar el resultado concatenando a lo que ya había
                     $resultado .= $romano;

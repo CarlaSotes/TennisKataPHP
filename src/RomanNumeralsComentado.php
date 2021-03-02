@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Deg540\PHPTestingBoilerplate;
 
 

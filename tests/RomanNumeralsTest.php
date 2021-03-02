@@ -23,7 +23,7 @@ final class RomanNumeralsTest extends TestCase {
      * Pasar el número 1 a números romanos
      * @test
      */
-    public function pasar_1_a_romanos() {
+    public function convertir_1_a_romanos() {
         // Preparación del test
         $romanNumeral = new RomanNumerals();
         // Ejecución del test
@@ -36,7 +36,7 @@ final class RomanNumeralsTest extends TestCase {
      * Pasar el número 5 a números romanos
      * @test
      */
-    public function pasar_5_a_romanos() {
+    public function convertir_5_a_romanos() {
         // Preparación del test
         $romanNumeral = new RomanNumerals();
         // Ejecución del test
@@ -49,7 +49,7 @@ final class RomanNumeralsTest extends TestCase {
      * Pasar el número 10 a números romanos
      * @test
      */
-    public function pasar_10_a_romanos() {
+    public function convertir_10_a_romanos() {
         // Preparación del test
         $romanNumeral = new RomanNumerals();
         // Ejecución del test
@@ -62,7 +62,7 @@ final class RomanNumeralsTest extends TestCase {
      * Pasar el número 50 a números romanos
      * @test
      */
-    public function pasar_50_a_romanos() {
+    public function convertir_50_a_romanos() {
         // Preparación del test
         $romanNumeral = new RomanNumerals();
         // Ejecución del test
@@ -75,7 +75,7 @@ final class RomanNumeralsTest extends TestCase {
      * Pasar el número 100 a números romanos
      * @test
      */
-    public function pasar_100_a_romanos() {
+    public function convertir_100_a_romanos() {
         // Preparación del test
         $romanNumeral = new RomanNumerals();
         // Ejecución del test
@@ -88,7 +88,7 @@ final class RomanNumeralsTest extends TestCase {
      * Pasar el número 500 a números romanos
      * @test
      */
-    public function pasar_500_a_romanos() {
+    public function convertir_500_a_romanos() {
         // Preparación del test
         $romanNumeral = new RomanNumerals();
         // Ejecución del test
@@ -101,7 +101,7 @@ final class RomanNumeralsTest extends TestCase {
      * Pasar el número 1000 a números romanos
      * @test
      */
-    public function pasar_1000_a_romanos() {
+    public function convertir_1000_a_romanos() {
         // Preparación del test
         $romanNumeral = new RomanNumerals();
         // Ejecución del test
@@ -115,7 +115,7 @@ final class RomanNumeralsTest extends TestCase {
      * el código, empleando una lista asociativa
      * @test
      */
-    public function pasar_basicos_a_romanos() {
+    public function convertir_basicos_a_romanos() {
         // Preparación del test
         $romanNumeral = new RomanNumerals();
         // Ejecución y Validación
@@ -135,25 +135,36 @@ final class RomanNumeralsTest extends TestCase {
 
     /**
      * Pasar los números concretos a romanos; mejorar el algoritmo
-     * Lo probamos con el número 5
+     * Lo probamos con el número 4
      * @test
      */
-    public function pasar_5_a_romanos_asocativa() {
+    public function convertir_4_a_romanos_asocativa() {
         // Preparación del test
         $romanNumeral = new RomanNumerals();
         // Ejecución y Validación
-        $this->assertEquals("V", $romanNumeral->convertir(5));
+        $this->assertEquals("IV", $romanNumeral->convertir(4));
     }
 
     /**
      * Pasar ya una combinación de números a romanos, por ejemplo el 8
      * @test
      */
-    public function pasar_8_a_romanos() {
+    public function convertir_8_a_romanos() {
         // Preparación del test
         $romanNumeral = new RomanNumerals();
         // Ejecución y Validación
         $this->assertEquals("VIII", $romanNumeral->convertir(8));
+    }
+
+    /**
+     * Pasar ya una combinación de números a romanos, por ejemplo el 93
+     * @test
+     */
+    public function convertir_93_a_romanos() {
+        // Preparación del test
+        $romanNumeral = new RomanNumerals();
+        // Ejecución y Validación
+        $this->assertEquals("XCIII", $romanNumeral->convertir(93));
     }
 
 }

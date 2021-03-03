@@ -18,55 +18,42 @@ class TennisGameTest extends TestCase {
      * Los dos jugadores cpmienzan con puntiación 0
      * @test
      */
-    public function puntuaciones_a_0() {
+    public function los_dos_a_0_devuelve_loveall() {
         // Preparación del test
-        $partido = new TennisGame("Juan", "Pepe");
+        $tennisGame = new TennisGame("Juan", "Pepe");
         // Ejecución del test
-        $puntuacion = $partido->getScore();
+        $score = $tennisGame->getScore();
         // Validación
-        $this->assertEquals("Love all", $puntuacion);
+        $this->assertEquals("Love all", $score);
     }
 
     /**
      * El jugador 1 marca un tanto
      * @test
      */
-    public function jugador1_marca_punto(){
+    public function jugador1_marca_punto_devuelve_Fifteen_Love(){
         // Preparación del test
-        $partido = new TennisGame("Juan", "Pepe");
+        $tennisGame = new TennisGame("Juan", "Pepe");
         // Ejecución del test
-        $partido->wonPoint("Juan"); // jugador 1 marca punto
-        $puntuacion = $partido->getScore(); // comprobar puntuación
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto
+        $score = $tennisGame->getScore(); // comprobar puntuación
         // Validación
-        $this->assertEquals("Fifteen - Love", $puntuacion);
+        $this->assertEquals("Fifteen - Love", $score);
     }
 
     /**
      * El jugador 2 marca un tanto
      * @test
      */
-    public function jugador2_marca_punto(){
+    public function jugador2_marca_punto_devuelve_Love_Fifteen(){
         // Preparación del test
-        $partido = new TennisGame("Juan", "Pepe");
+        $tennisGame = new TennisGame("Juan", "Pepe");
         // Ejecución del test
-        $partido->wonPoint("Pepe"); // jugador 2 marca punto
-        $puntuacion = $partido->getScore(); // comprobar puntuación
+        $tennisGame->wonPoint("Pepe"); // jugador 2 marca punto
+        $score = $tennisGame->getScore(); // comprobar puntuación
         // Validación
-        $this->assertEquals("Love - Fifteen", $puntuacion);
+        $this->assertEquals("Love - Fifteen", $score);
     }
 
-    /**
-     * Ambos jugadores meten tanto y quedan en empate a 15
-     * @test
-     */
-    public function empate_a_15(){
-        // Preparación del test
-        $partido = new TennisGame("Juan", "Pepe");
-        // Ejecución del test
-        $partido->wonPoint("Juan"); // jugador 1 marca punto
-        $partido->wonPoint("Pepe"); // jugador 2 marca punto
-        $puntuacion = $partido->getScore(); // comprobar puntuación
-        // Validación
-        $this->assertEquals("Fifteen all", $puntuacion);
-    }
+
 }

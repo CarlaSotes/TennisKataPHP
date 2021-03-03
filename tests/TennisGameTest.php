@@ -440,4 +440,25 @@ class TennisGameTest extends TestCase {
         $this->assertEquals("Advantage Pepe", $score);
     }
 
+    /**
+     * En empate a 40, el jugador 2 anota punto, tiene ventaja y vuelve a marcar, entonces gana
+     * @test
+     */
+    public function jugador2_marca_despues_de_40_puntos_y_ventaja_jugador1_40puntos_devuelve_gana_jugador2()
+    {
+        // Preparación del test
+        $tennisGame = new TennisGame("Juan", "Pepe");
+        // Ejecución del test
+        $tennisGame->wonPoint("Pepe"); // jugador 2 marca punto (15)
+        $tennisGame->wonPoint("Pepe"); // jugador 2 marca punto (30)
+        $tennisGame->wonPoint("Pepe"); // jugador 2 marca punto (40)
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (15)
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (30)
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (40)
+        $tennisGame->wonPoint("Pepe"); // jugador 2 marca punto (50)
+        $tennisGame->wonPoint("Pepe"); // jugador 2 marca punto (50) - 50 porque se restablece a 40
+        $score = $tennisGame->getScore(); // comprobar puntuación
+        // Validación
+        $this->assertEquals("Win Pepe", $score);
+    }
 }

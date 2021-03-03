@@ -72,6 +72,8 @@ class TennisGame {
             return "Win ".$this->jug1;
         } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 40) && ($this->contador2==1)) { // empate pero con 1 ventaja
             return "Advantage ".$this->jug2;
+        } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 40) && ($this->contador2==2)) { // empate pero con 1 ventaja
+            return "Win ".$this->jug2;
         }
         return 0;
     }

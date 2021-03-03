@@ -58,6 +58,8 @@ class TennisGame {
             return "Fifteen - Forty";
         } elseif (($this->score_jugador1 == 30) && ($this->score_jugador2 == 40)) {
             return "Thirty - Forty";
+        } elseif (($this->score_jugador1 == 50) && ($this->score_jugador2 == 0)) {
+            return "Win ".$this->jug1;
         }
         return 0;
     }

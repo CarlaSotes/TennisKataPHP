@@ -270,6 +270,22 @@ class TennisGameTest extends TestCase {
         $this->assertEquals("Thirty - Forty", $score);
     }
 
+    /**
+     * Caso en el que el jugador 1 llega a 40 y vuelve a marcar pero el jugador 2 no marca
+     * @test
+     */
+    public function jugador1_40_puntos_vuelve_a_marcar_jugador2_0_puntos_devuelve_gana_jugador1(){
+        // Preparación del test
+        $tennisGame = new TennisGame("Juan", "Pepe");
+        // Ejecución del test
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (15)
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (30)
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (40)
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (50)
+        $score = $tennisGame->getScore(); // comprobar puntuación
+        // Validación
+        $this->assertEquals("Win Juan", $score);
+    }
 
 
 }

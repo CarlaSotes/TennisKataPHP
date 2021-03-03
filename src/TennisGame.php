@@ -12,8 +12,8 @@ class TennisGame {
 
     /**
      * TennisGame constructor.
-     * @param $jugador1
-     * @param $jugador2
+     * @param string $jugador1
+     * @param string $jugador2
      */
     public function __construct(string $jugador1, string $jugador2) {
         $this->jug1 = $jugador1; // dar valor al atributo del nombre del jugador 1
@@ -28,8 +28,23 @@ class TennisGame {
     public function getScore():string {
         if (($this->score_jugador1 == 0) && ($this->score_jugador2 == 0)){
             return "Love all";
+        } elseif(($this->score_jugador1 == 15) && ($this->score_jugador2 == 0)) {
+            return "Fifteen - Love";
         }
+
         return 0;
     }
 
+    /**
+     * @param string $jugador
+     */
+    public function wonPoint(string $jugador) {
+        /* ESTO ES PARA CUANDO ESTÁN LOS DOS A 0, LES SUMAMOS 15ptos (TEST 2,3)*/
+        // Primero, comprobar qué jugador ha marcado
+        if (strcmp($jugador,$this->jug1) == 0){
+            $this->score_jugador1 = $this->score_jugador1 + 15;
+        }else{
+            $this->score_jugador2 = $this->score_jugador2 + 15;
+        }
+    }
 }

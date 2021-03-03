@@ -44,6 +44,8 @@ class TennisGame {
             return "Thirty - Fifteen";
         } elseif (($this->score_jugador1 == 15) && ($this->score_jugador2 == 30)) {
             return "Fifteen - Thirty";
+        } elseif (($this->score_jugador1 == 0) && ($this->score_jugador2 == 40)) {
+            return "Love - Forty";
         }
         return 0;
     }
@@ -52,12 +54,20 @@ class TennisGame {
      * @param string $jugador
      */
     public function wonPoint(string $jugador) {
-        /* ESTO ES PARA CUANDO ESTÁN LOS DOS A 0, LES SUMAMOS 15ptos (TEST 2,3,4,5,6,7,8,9)*/
         // Primero, comprobar qué jugador ha marcado
         if (strcmp($jugador,$this->jug1) == 0){
-            $this->score_jugador1 = $this->score_jugador1 + 15;
+            // Ver si son menos de 40 (osea hasta 30) puntos porque entonces se suma de 10 en 10
+            if ($this->score_jugador1 < 30){
+                $this->score_jugador1 = $this->score_jugador1 + 15;
+            } else{
+                $this->score_jugador1 = $this->score_jugador1 + 10;
+            }
         }else{
-            $this->score_jugador2 = $this->score_jugador2 + 15;
+            if ($this->score_jugador2 < 30){
+                $this->score_jugador2 = $this->score_jugador2 + 15;
+            } else{
+                $this->score_jugador2 = $this->score_jugador2 + 10;
+            }
         }
     }
 }

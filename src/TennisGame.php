@@ -28,12 +28,14 @@ class TennisGame {
     public function getScore():string {
         if (($this->score_jugador1 == 0) && ($this->score_jugador2 == 0)){
             return "Love all";
-        } elseif(($this->score_jugador1 == 15) && ($this->score_jugador2 == 0)){
+        } elseif(($this->score_jugador1 == 15) && ($this->score_jugador2 == 0)) {
             return "Fifteen - Love";
-        } elseif (($this->score_jugador1 == 0) && ($this->score_jugador2 == 15)){
+        } elseif (($this->score_jugador1 == 0) && ($this->score_jugador2 == 15)) {
             return "Love - Fifteen";
         } elseif (($this->score_jugador1 == 15) && ($this->score_jugador2 == 15)) {
             return "Fifteen all";
+        } elseif (($this->score_jugador1 == 30) && ($this->score_jugador2 == 0)) {
+            return "Thirty - Love";
         }
         return 0;
     }

@@ -59,14 +59,29 @@ class TennisGameTest extends TestCase {
      * Ambos jugadores meten tanto y quedan en empate a 15
      * @test
      */
-    public function empate_a_15(){
+    public function empate_a_15_devuelve_Fifteen_all(){
         // Preparación del test
         $tennisGame = new TennisGame("Juan", "Pepe");
         // Ejecución del test
-        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto
-        $tennisGame->wonPoint("Pepe"); // jugador 2 marca punto
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (15)
+        $tennisGame->wonPoint("Pepe"); // jugador 2 marca punto (15)
         $score = $tennisGame->getScore(); // comprobar puntuación
         // Validación
         $this->assertEquals("Fifteen all", $score);
+    }
+
+    /**
+     * El jugador 1 mete 2 tantos (30pto) y el jugador 2, nada
+     * @test
+     */
+    public function jugador1_30puntos_jugador2_0puntos_devuelve_Thirty_Love(){
+        // Preparación del test
+        $tennisGame = new TennisGame("Juan", "Pepe");
+        // Ejecución del test
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (15)
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (30)
+        $score = $tennisGame->getScore(); // comprobar puntuación
+        // Validación
+        $this->assertEquals("Thirty - Love", $score);
     }
 }

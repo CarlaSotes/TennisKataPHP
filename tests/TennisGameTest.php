@@ -165,4 +165,21 @@ class TennisGameTest extends TestCase {
         $this->assertEquals("Love - Forty", $score);
     }
 
+    /**
+     * Jugador 1 llega hasta 40 puntos pero el jugador 2 no marca nada
+     * @test
+     */
+    public function jugador1_40puntos_jugador2_0puntos_devuelve_Forty_Love(){
+        // Preparación del test
+        $tennisGame = new TennisGame("Juan", "Pepe");
+        // Ejecución del test
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (15)
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (30)
+        $tennisGame->wonPoint("Juan"); // jugador 1 marca punto (40)
+        $score = $tennisGame->getScore(); // comprobar puntuación
+        // Validación
+        $this->assertEquals("Forty - Love", $score);
+    }
+
+
 }

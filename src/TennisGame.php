@@ -26,7 +26,7 @@ class TennisGame {
      * @return string
      */
     public function getScore():string {
-        if (($this->score_jugador1 == 0) && ($this->score_jugador2 == 0)){
+        if (($this->score_jugador1 == 0) && ($this->score_jugador2 == 0)) {
             return "Love all";
         } elseif(($this->score_jugador1 == 15) && ($this->score_jugador2 == 0)) {
             return "Fifteen - Love";
@@ -48,6 +48,10 @@ class TennisGame {
             return "Love - Forty";
         } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 0)) {
             return "Forty - Love";
+        } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 40)) {
+            return "Deuce";
+        } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 15)) {
+            return "Forty - Fifteen";
         }
         return 0;
     }

@@ -9,7 +9,8 @@ class TennisGame {
     public string $jug2; // nombre jugador 2
     public int $score_jugador1; // puntuación jugador 1
     public int $score_jugador2; // puntuación jugador 2
-    public int $contador; // si tiene ventaja, para volver a marcar
+    public int $contador1; // si jugador 1 tiene ventaja, para volver a marcar
+    public int $contador2; // si jugador 1 tiene ventaja, para volver a marcar
 
     /**
      * TennisGame constructor.
@@ -21,7 +22,8 @@ class TennisGame {
         $this->jug2 = $jugador2; // dar valor al atributo del nombre del jugador 2
         $this->score_jugador1 = 0; // jugador 1 empieza con 0 puntos
         $this->score_jugador2 = 0; // jugador 2 empieza con 0 puntos
-        $this->contador = 0; // ninguno tiene ventaja
+        $this->contador1 = 0; // ninguno tiene ventaja
+        $this->contador2 = 0; // ninguno tiene ventaja
     }
 
     /**
@@ -50,7 +52,7 @@ class TennisGame {
             return "Love - Forty";
         } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 0)) {
             return "Forty - Love";
-        } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 40) && ($this->contador==0)) {
+        } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 40) && ($this->contador1==0) && ($this->contador2==0)) { //ninguno está en ventaja, solo han empatado
             return "Deuce";
         } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 15)) {
             return "Forty - Fifteen";
@@ -64,8 +66,12 @@ class TennisGame {
             return "Win ".$this->jug1;
         } elseif (($this->score_jugador1 <= 30) && ($this->score_jugador2 == 50)) {
             return "Win ".$this->jug2;
-        } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 40) && ($this->contador==1)) { // empate pero con 1 ventaja
+        } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 40) && ($this->contador1==1)) { // empate pero con 1 ventaja
             return "Advantage ".$this->jug1;
+        } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 40) && ($this->contador1==2)) { // empate pero con 2 ventaja
+            return "Win ".$this->jug1;
+        } elseif (($this->score_jugador1 == 40) && ($this->score_jugador2 == 40) && ($this->contador2==1)) { // empate pero con 1 ventaja
+            return "Advantage ".$this->jug2;
         }
         return 0;
     }
@@ -91,7 +97,11 @@ class TennisGame {
         }
         if (($this->score_jugador1 == 50) && ($this->score_jugador2 == 40)) {
             $this->score_jugador1 = 40; // vuelven a estar en empate
-            $this->contador = $this->contador + 1; // se le da una ventaja
+            $this->contador1 = $this->contador1 + 1; // se le da una ventaja
+        }
+        if (($this->score_jugador1 == 40) && ($this->score_jugador2 == 50)) {
+            $this->score_jugador2 = 40; // vuelven a estar en empate
+            $this->contador2 = $this->contador2 + 1; // se le da una ventaja
         }
     }
 }

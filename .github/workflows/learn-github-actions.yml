@@ -17,4 +17,4 @@ jobs:
           php-version: '7.4'
 
       - name: Checkout tests1
-        run: vendor/bin/phpunit
+        run: ./vendor/bin/phpunit -c phpunit.xml

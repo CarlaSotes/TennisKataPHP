@@ -2,7 +2,7 @@ name: learn-github-actions
 on:
   push:
     branch:
-      -developp
+      - developp
 jobs:
   check-ls:
     runs-on: ubuntu-latest

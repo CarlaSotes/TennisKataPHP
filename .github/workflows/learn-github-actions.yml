@@ -1,11 +1,13 @@
 name: learn-github-actions
 on:
   push:
-    branch:
+    branches:
       - developp
 jobs:
-  check-ls:
+  validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: ls -al
+      - name: Checkout develop
+        uses: actions/checkout@v2
+      - name: Checkout file system
+        run: ls -al

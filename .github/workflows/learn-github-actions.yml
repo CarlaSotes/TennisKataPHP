@@ -16,5 +16,8 @@ jobs:
           tools: composer:v2
           php-version: '7.4'
 
+      - name: Install dependencies
+        run: composer install
+
       - name: Checkout tests1
         run: ./vendor/bin/phpunit -c phpunit.xml

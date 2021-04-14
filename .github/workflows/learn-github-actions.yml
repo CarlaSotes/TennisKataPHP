@@ -1,9 +1,9 @@
 name: learn-github-actions
-on: [pull]
+on: [push]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - run: ls
+      - run: ls -al

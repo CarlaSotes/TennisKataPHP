@@ -16,5 +16,5 @@ jobs:
           tools: composer:v2
           php-version: '7.4'
 
-      - name: Checkout file system
-        run: ls -al
+      - name: Checkout tests1
+        run: vendor/bin/phpunit
